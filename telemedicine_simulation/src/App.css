@@ -1,0 +1,279 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+  padding: 20px;
+}
+
+#root {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.app-container {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  padding: 40px;
+  max-width: 600px;
+  width: 100%;
+}
+
+/* Lead paragraph under title */
+.lead {
+  color: #777;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+/* Main layout grid */
+.main-grid {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.left-column {
+  flex: 1;
+  min-width: 280px;
+}
+
+.right-column {
+  width: 100%;
+  max-width: 320px;
+}
+
+.text-input {
+  width: 100%;
+  padding: 12px;
+  margin: 8px 0 15px 0;
+  border: 2px solid #e0e0e0;
+  border-radius: 6px;
+  font-size: 16px;
+}
+
+.muted {
+  color: #999;
+}
+
+.appt-time {
+  font-size: 14px;
+  color: #777;
+  margin-top: 4px;
+}
+
+.btn-inline {
+  margin-top: 10px;
+  padding: 10px 16px;
+  font-size: 14px;
+  width: auto;
+}
+
+.status-box {
+  background-color: #f8f9fa;
+  padding: 15px;
+  border-radius: 6px;
+  margin-bottom: 20px;
+}
+
+.status-text {
+  color: #667eea;
+}
+
+.controls-list {
+  padding-left: 20px;
+  color: #666;
+  line-height: 1.8;
+}
+
+/* Checklist styles */
+.checklist {
+  border: 1px solid #e0e0e0;
+  padding: 12px;
+  border-radius: 8px;
+  margin-top: 12px;
+  background-color: #f8f9fa;
+}
+
+.checklist-title { margin-top: 0; }
+.checklist-item { display: block; margin-top: 8px; }
+
+/* Chat window styles */
+.chat-window {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 350px;
+  height: 500px;
+  background-color: white;
+  border: 2px solid #667eea;
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+  display: flex;
+  flex-direction: column;
+  z-index: 1000;
+}
+
+.chat-header {
+  background-color: #667eea;
+  color: white;
+  padding: 15px;
+  border-radius: 10px 10px 0 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.chat-title { margin: 0; }
+.chat-close { background: none; border: none; color: white; font-size: 20px; cursor: pointer; }
+
+.chat-messages { flex: 1; overflow-y: auto; padding: 15px; background-color: #f8f9fa; }
+.chat-message { margin-bottom: 12px; }
+.chat-message--patient { text-align: right; }
+.chat-message--doctor { text-align: left; }
+
+.chat-bubble { display: inline-block; max-width: 75%; padding: 10px 12px; border-radius: 8px; font-size: 14px; }
+.chat-bubble--patient { background-color: #667eea; color: white; }
+.chat-bubble--doctor { background-color: #e0e0e0; color: #333; }
+
+.chat-footer { padding: 12px; background-color: white; border-top: 1px solid #e0e0e0; display: flex; gap: 8px; align-items: center; }
+.chat-input { flex: 1.6; padding: 12px 14px; border: 1px solid #e0e0e0; border-radius: 8px; font-size: 15px; }
+.chat-send { width: 56px; height: 40px; background-color: #667eea; color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 14px; display: flex; align-items: center; justify-content: center; }
+
+h1 {
+  color: #333;
+  margin-bottom: 30px;
+  text-align: center;
+  font-size: 28px;
+}
+
+h3 {
+  color: #555;
+  margin-top: 20px;
+  margin-bottom: 15px;
+  font-size: 18px;
+}
+
+input[type="text"],
+input[type="datetime-local"] {
+  width: 100%;
+  padding: 12px;
+  margin: 8px 0 15px 0;
+  border: 2px solid #e0e0e0;
+  border-radius: 6px;
+  font-size: 16px;
+  transition: border-color 0.3s;
+}
+
+input[type="text"]:focus,
+input[type="datetime-local"]:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+button {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  width: 100%;
+  margin-top: 10px;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+label {
+  display: block;
+  color: #555;
+  margin: 10px 0;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+input[type="checkbox"] {
+  margin-right: 8px;
+  cursor: pointer;
+  width: 18px;
+  height: 18px;
+}
+
+.appointment-item {
+  background: #f8f9fa;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  padding: 15px;
+  margin-top: 12px;
+  transition: all 0.3s;
+}
+
+.appointment-item:hover {
+  background: #f0f1fa;
+  border-color: #667eea;
+  box-shadow: 0 2px 8px rgba(102, 126, 234, 0.1);
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  margin-top: 8px;
+}
+
+.status-booked {
+  background: #e3f2fd;
+  color: #1976d2;
+}
+
+.status-consulting {
+  background: #f3e5f5;
+  color: #7b1fa2;
+}
+
+.status-completed {
+  background: #e8f5e9;
+  color: #388e3c;
+}
+
+.status-failed {
+  background: #ffebee;
+  color: #d32f2f;
+}
+
+@media (max-width: 600px) {
+  .app-container {
+    padding: 20px;
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+
+  button {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+}
